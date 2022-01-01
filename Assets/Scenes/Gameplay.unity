@@ -155,7 +155,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.9
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -163,7 +163,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &42570106
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -192,11 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 636df070aa2185341a0c1d053b490308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _ballController: {fileID: 11400000, guid: e5fec674ed880b5458bfdb05f54f47c6, type: 2}
   _ballRb2D: {fileID: 42570105}
   _ballGoRight: 1
-  _isBoing: 0
-  _jumpPowerHorizontal: 50
-  _jumpPowerVertical: 23000
 --- !u!212 &42570108
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -372,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612646778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6089773, y: -0.18538359, z: 1.3869604}
+  m_LocalPosition: {x: 5.208977, y: -0.18538359, z: 1.3869604}
   m_LocalScale: {x: 0.56874996, y: 10.421249, z: 1}
   m_Children: []
   m_Father: {fileID: 1594375631}
@@ -394,7 +392,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0faecf5802ced7645b510da378b8f609, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -799,7 +797,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142675404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14897752, y: -0.18538359, z: 1.3869604}
+  m_LocalPosition: {x: 0.5489775, y: -0.18538359, z: 1.3869604}
   m_LocalScale: {x: 0.56874996, y: 10.421249, z: 1}
   m_Children: []
   m_Father: {fileID: 1594375631}
@@ -821,7 +819,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0faecf5802ced7645b510da378b8f609, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0

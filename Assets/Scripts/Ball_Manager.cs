@@ -10,7 +10,6 @@ public class Ball_Manager : MonoBehaviour
     public Rigidbody2D _ballRb2D;
 
     public bool _ballGoRight = true;
-    public bool _isBoing = false;
 
 
     void Start()
@@ -30,12 +29,10 @@ public class Ball_Manager : MonoBehaviour
             if (_ballGoRight)
             {
                 _ballGoRight = false;
-                _isBoing = false;
             }
             else
             {
                 _ballGoRight = true;
-                _isBoing = false;
             }
         }
     }
@@ -45,19 +42,14 @@ public class Ball_Manager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //if (!_isBoing)
-            //{
-                if (_ballGoRight)
-                {
-                    Jump(Vector2.right);
-                    _isBoing = true;
-                }
-                else
-                {
-                    Jump(Vector2.left);
-                    _isBoing = true;
-                }
-           //}
+            if (_ballGoRight)
+            {
+                Jump(Vector2.right);
+            }
+            else
+            {
+                Jump(Vector2.left);
+            }
         }
     }
 

@@ -64,7 +64,7 @@ public class Ball_Manager : MonoBehaviour
     // Ball's jump direction
     private void Jump(Vector2 direction)
     {
-        _ballRb2D.AddForce(Vector2.up * _ballController._jumpPowerVertical * Time.deltaTime);
+        _ballRb2D.velocity = new Vector2(0, 1) * _ballController._jumpPowerVertical * Time.deltaTime;
         _ballRb2D.AddForce(direction * _ballController._jumpPowerHorizontal * Time.deltaTime);
     }
 

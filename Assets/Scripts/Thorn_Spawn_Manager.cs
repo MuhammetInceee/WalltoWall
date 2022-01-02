@@ -21,6 +21,15 @@ public class Thorn_Spawn_Manager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
+
+    private void Start()
+    {
+        for(int i = 3; i > 0; i--)
+        {
+            ThornInstantiater(false);
+        }
+    }
+
     /// <summary>
     /// If is True right side thorns activated or if is false left side thorns activated
     /// </summary>

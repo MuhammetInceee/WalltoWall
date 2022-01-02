@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Ball_Settings
   m_EditorClassIdentifier: 
   _jumpPowerHorizontal: 30000
-  _jumpPowerVertical: 1800
+  _jumpPowerVertical: 1500

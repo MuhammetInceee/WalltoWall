@@ -70,19 +70,5 @@ public class Ball_Manager : MonoBehaviour
             //Try End
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Wall")
-        {
-            if (_ballGoRight)
-            {
-                _ballGoRight = false;
-            }
-            else
-            {
-                _ballGoRight = true;
-            }
-        }
-    }
 
 }

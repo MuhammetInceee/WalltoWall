@@ -4,38 +4,46 @@ using UnityEngine;
 
 public class Thorn_Spawn_Manager : MonoBehaviour
 {
-    [SerializeField] private GameObject _thornPrefab;
+    public static Thorn_Spawn_Manager Instance;
 
-    void Start()
+
+
+    [SerializeField] private List<GameObject> _rightSideThorn = new List<GameObject>();
+    [SerializeField] private List<GameObject> _leftSideThorn = new List<GameObject>();
+
+
+    private void Awake()
     {
-        for (int i = 2; i > 0; i--)
-        {
-            ThornInstantiater(false);
-            ThornInstantiater(true);
-        }
-    }
-
-    void Update()
-    {
-
-    }
-
-    /// <summary>
-    /// If is true Instantiate right side of screen or if is false Instante left side of the screen.
-    /// </summary>
-    /// <param name="isRight">If is true Instantiate right side of screen or if is false Instante left side of the screen.</param>
-    void ThornInstantiater(bool isRight)
-    {
-        float randomRangeLeftY = Random.Range(-4.3f, 4.3f);
-        float randomRangeRightY = Random.Range(-4.3f, 4.3f);
-
-        Vector2 InstantiateVectorLeft = new Vector2(_thornPrefab.transform.position.x, randomRangeLeftY);
-        Vector2 InstantiateVectorRight = new Vector2(-_thornPrefab.transform.position.x, randomRangeRightY);
-
-
-        if (!isRight)
-            Instantiate(_thornPrefab, InstantiateVectorLeft, Quaternion.Euler(0,0,-90));
+        if (Instance == null)
+            Instance = this;
         else
-            Instantiate(_thornPrefab, InstantiateVectorRight, Quaternion.Euler(0, 0, 90));
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+    /// <summary>
+    /// If is True right side thorns activated or if is false left side thorns activated
+    /// </summary>
+    /// <param name="isRightSide"></param>
+    public void ThornInstantiater(bool isRightSide)
+    {
+        if (isRightSide)
+        {
+            int i = Random.Range(0, _rightSideThorn.Count + 1);
+
+            if (_rightSideThorn[i].activeInHierarchy)
+                ThornInstantiater(true);
+            else
+                _rightSideThorn[i].SetActive(true);
+        }
+        else
+        {
+            int i = Random.Range(0, _leftSideThorn.Count + 1);
+
+            if (_leftSideThorn[i].activeInHierarchy)
+                ThornInstantiater(false);
+            else
+                _leftSideThorn[i].SetActive(true);
+        }
     }
 }

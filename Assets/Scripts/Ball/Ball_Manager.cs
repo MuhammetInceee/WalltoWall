@@ -13,7 +13,7 @@ public class Ball_Manager : MonoBehaviour
     public int score;
 
 
-    private Rigidbody2D _ballRb2D;
+    public Rigidbody2D _ballRb2D;
     private float _ballBoundary = 5.4f;
 
 
@@ -59,20 +59,14 @@ public class Ball_Manager : MonoBehaviour
         if (this.gameObject.transform.position.y < -_ballBoundary)
         {
             //Game End Blocks
+            GameStates.SetGameState(GameStates.GameState.GameOver, _ballRb2D);
             //Falls message on the end screen
-
-            //Just Try
-            Time.timeScale = 0f;
-            //Try End
         }
         else if (this.gameObject.transform.position.y > _ballBoundary)
         {
             //Game End Blocks
+            GameStates.SetGameState(GameStates.GameState.GameOver, _ballRb2D);
             //Topside goes message on end screen
-
-            //Just Try
-            Time.timeScale = 0f;
-            //Try End
         }
     }
 

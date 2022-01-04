@@ -33,10 +33,7 @@ public class Ball_Collision_Controller : MonoBehaviour
         else if(collision.gameObject.tag == "Thorn")
         {
             //Game End States
-
-            //Test
-            Time.timeScale = 0f;
-            //Test End
+            GameStates.SetGameState(GameStates.GameState.GameOver, _ball._ballRb2D);
         }
     }
 }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9eed51461ca3fc4592d26c6fe4fe489, type: 3}
   m_Name: Ball_Settings
   m_EditorClassIdentifier: 
-  _jumpPowerHorizontal: 30000
-  _jumpPowerVertical: 1500
+  _jumpPowerHorizontal: 8500
+  _jumpPowerVertical: 250

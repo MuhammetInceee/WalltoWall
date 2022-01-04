@@ -22,14 +22,6 @@ public class Thorn_Spawn_Manager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
-    {
-        for(int i = 3; i > 0; i--)
-        {
-            ThornInstantiater(false);
-        }
-    }
-
     /// <summary>
     /// If is True right side thorns activated or if is false left side thorns activated
     /// </summary>
@@ -38,7 +30,7 @@ public class Thorn_Spawn_Manager : MonoBehaviour
     {
         if (isRightSide)
         {
-            int i = Random.Range(0, _rightSideThorn.Count + 1);
+            int i = Random.Range(0, _rightSideThorn.Count);
 
             if (_rightSideThorn[i].activeInHierarchy)
                 ThornInstantiater(true);
@@ -47,12 +39,48 @@ public class Thorn_Spawn_Manager : MonoBehaviour
         }
         else
         {
-            int i = Random.Range(0, _leftSideThorn.Count + 1);
+            int i = Random.Range(0, _leftSideThorn.Count);
 
             if (_leftSideThorn[i].activeInHierarchy)
                 ThornInstantiater(false);
             else
                 _leftSideThorn[i].SetActive(true);
+        }
+    }
+
+    public void ThornSpawnRightSide()
+    {
+        int thornCount = Random.Range(1, 6);
+
+        for(; thornCount > 0; thornCount--)
+        {
+            ThornInstantiater(true);
+        }
+
+        foreach(GameObject elements in _leftSideThorn)
+        {
+            if (elements.activeInHierarchy)
+            {
+                elements.SetActive(false);
+            }
+        }
+    }
+
+    public void ThornSpawnLeftSide()
+    {
+        int thornCount = Random.Range(1, 6);
+
+        for (; thornCount > 0; thornCount--)
+        {
+            ThornInstantiater(false);
+        }
+
+        foreach (GameObject elements in _rightSideThorn)
+        {
+            if (elements.activeInHierarchy)
+            {
+                elements.SetActive(false);
+            }
         }
     }
 }

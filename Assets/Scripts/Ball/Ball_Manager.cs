@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ball_Manager : MonoBehaviour
 {
     [SerializeField] private Ball_Settings _ballController;
+    [SerializeField] private Text _scoreText;
 
 
     public bool _ballGoRight = true;
+    public int score;
 
 
     private Rigidbody2D _ballRb2D;
@@ -23,6 +26,8 @@ public class Ball_Manager : MonoBehaviour
     {
         BallControl();
         BallBoundries();
+
+        _scoreText.text = "" + score;
     }
 
 

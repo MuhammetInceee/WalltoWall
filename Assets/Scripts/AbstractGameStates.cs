@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStates : MonoBehaviour
+public class AbstractGameStates
 {
     public enum GameState
     {
@@ -13,10 +13,6 @@ public class GameStates : MonoBehaviour
 
     static GameState currentState;
 
-    private void Awake()
-    {
-        currentState = GameState.GamePaused;
-    }
 
     public static void SetGameState(GameState newState, Rigidbody2D rb2D)
     {

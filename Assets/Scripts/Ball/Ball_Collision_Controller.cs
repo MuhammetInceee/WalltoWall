@@ -9,6 +9,7 @@ public class Ball_Collision_Controller : MonoBehaviour
     private void Start()
     {
         _ball = FindObjectOfType<Ball_Manager>();
+        Thorn_Spawn_Manager.Instance.ThornSpawnRightSide();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -18,11 +19,15 @@ public class Ball_Collision_Controller : MonoBehaviour
             if (_ball._ballGoRight)
             {
                 _ball._ballGoRight = false;
+                Thorn_Spawn_Manager.Instance.ThornSpawnLeftSide();
             }
             else
             {
                 _ball._ballGoRight = true;
+                Thorn_Spawn_Manager.Instance.ThornSpawnRightSide();
             }
+
+            _ball.score++;
         }
 
         else if(collision.gameObject.tag == "Thorn")

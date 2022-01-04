@@ -33,7 +33,7 @@ public class Ball_Collision_Controller : MonoBehaviour
         else if(collision.gameObject.tag == "Thorn")
         {
             //Game End States
-            GameStates.SetGameState(GameStates.GameState.GameOver, _ball._ballRb2D);
+            AbstractGameStates.SetGameState(AbstractGameStates.GameState.GameOver, _ball._ballRb2D);
         }
     }
 }

@@ -59,13 +59,13 @@ public class Ball_Manager : MonoBehaviour
         if (this.gameObject.transform.position.y < -_ballBoundary)
         {
             //Game End Blocks
-            GameStates.SetGameState(GameStates.GameState.GameOver, _ballRb2D);
+            AbstractGameStates.SetGameState(AbstractGameStates.GameState.GameOver, _ballRb2D);
             //Falls message on the end screen
         }
         else if (this.gameObject.transform.position.y > _ballBoundary)
         {
             //Game End Blocks
-            GameStates.SetGameState(GameStates.GameState.GameOver, _ballRb2D);
+            AbstractGameStates.SetGameState(AbstractGameStates.GameState.GameOver, _ballRb2D);
             //Topside goes message on end screen
         }
     }

@@ -6,6 +6,9 @@ public class Ball_Collision_Controller : MonoBehaviour
 {
     [SerializeField] private Ball_Manager _ball;
 
+    [SerializeField] private ParticleSystem _executeEffect;
+
+
     private void Start()
     {
         _ball = FindObjectOfType<Ball_Manager>();
@@ -34,6 +37,9 @@ public class Ball_Collision_Controller : MonoBehaviour
         {
             //Game End States
             AbstractGameStates.SetGameState(AbstractGameStates.GameState.GameOver, _ball._ballRb2D);
+            gameObject.SetActive(false);
+            _executeEffect.transform.position = gameObject.transform.position;
+            _executeEffect.Play();
         }
     }
 }

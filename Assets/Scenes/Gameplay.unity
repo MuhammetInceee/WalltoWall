@@ -8694,6 +8694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e6df657936c3e741a7b49d1b3cd49b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thornCount: 0
   _rightSideThorn:
   - {fileID: 694749267}
   - {fileID: 239830941}
@@ -8717,6 +8718,7 @@ MonoBehaviour:
   - {fileID: 1840931336}
   - {fileID: 640318922}
   - {fileID: 180617978}
+  _ballManager: {fileID: 42570107}
 --- !u!4 &2066602202
 Transform:
   m_ObjectHideFlags: 0

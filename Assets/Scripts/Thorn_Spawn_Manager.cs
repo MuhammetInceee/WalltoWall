@@ -7,9 +7,12 @@ public class Thorn_Spawn_Manager : MonoBehaviour
     public static Thorn_Spawn_Manager Instance;
 
 
+    //public int thornCount = Random.Range(1, 7);
+    public int thornCount;
 
     [SerializeField] private List<GameObject> _rightSideThorn = new List<GameObject>();
     [SerializeField] private List<GameObject> _leftSideThorn = new List<GameObject>();
+    [SerializeField] private Ball_Manager _ballManager;
 
 
     private void Awake()
@@ -20,6 +23,8 @@ public class Thorn_Spawn_Manager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+
+        _ballManager = FindObjectOfType<Ball_Manager>();
     }
 
     /// <summary>
@@ -50,9 +55,9 @@ public class Thorn_Spawn_Manager : MonoBehaviour
 
     public void ThornSpawnRightSide()
     {
-        int thornCount = Random.Range(1, 6);
+        RandomThornCountAlgorithm();
 
-        for(; thornCount > 0; thornCount--)
+        for (; thornCount > 0; thornCount--)
         {
             ThornInstantiater(true);
         }
@@ -68,7 +73,7 @@ public class Thorn_Spawn_Manager : MonoBehaviour
 
     public void ThornSpawnLeftSide()
     {
-        int thornCount = Random.Range(1, 6);
+        RandomThornCountAlgorithm();
 
         for (; thornCount > 0; thornCount--)
         {
@@ -82,5 +87,25 @@ public class Thorn_Spawn_Manager : MonoBehaviour
                 elements.SetActive(false);
             }
         }
+    }
+
+    private void RandomThornCountAlgorithm()
+    {
+        if (_ballManager.score < 5)
+            thornCount = Random.Range(1, 3);
+
+        else if (_ballManager.score >= 5 && _ballManager.score < 25)
+            thornCount = Random.Range(1, 5);
+
+        else if (_ballManager.score >= 25 && _ballManager.score < 50)
+            thornCount = Random.Range(2, 6);
+
+        else if (_ballManager.score >= 50 && _ballManager.score < 100)
+            thornCount = Random.Range(3, 7);
+
+        else if (_ballManager.score >= 100)
+            thornCount = Random.Range(4, 8);
+
+        Debug.Log(thornCount);
     }
 }

@@ -12,7 +12,6 @@ public class Ball_Collision_Controller : MonoBehaviour
     private void Start()
     {
         _ball = FindObjectOfType<Ball_Manager>();
-        Thorn_Spawn_Manager.Instance.ThornSpawnRightSide();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

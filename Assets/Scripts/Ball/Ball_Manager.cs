@@ -20,6 +20,7 @@ public class Ball_Manager : MonoBehaviour
     void Start()
     {
         _ballRb2D = this.gameObject.GetComponent<Rigidbody2D>();
+        FirstTouch();
     }
 
     void Update()
@@ -68,6 +69,11 @@ public class Ball_Manager : MonoBehaviour
             AbstractGameStates.SetGameState(AbstractGameStates.GameState.GameOver, _ballRb2D);
             //Topside goes message on end screen
         }
+    }
+
+    public void FirstTouch()
+    {
+        Thorn_Spawn_Manager.Instance.ThornSpawnRightSide();
     }
 
 }

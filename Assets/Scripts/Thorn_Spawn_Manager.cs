@@ -95,17 +95,28 @@ public class Thorn_Spawn_Manager : MonoBehaviour
             thornCount = Random.Range(1, 3);
 
         else if (_ballManager.score >= 5 && _ballManager.score < 25)
-            thornCount = Random.Range(1, 5);
+            thornCount = Random.Range(2, 5);
 
         else if (_ballManager.score >= 25 && _ballManager.score < 50)
-            thornCount = Random.Range(2, 6);
+            thornCount = Random.Range(3, 6);
 
         else if (_ballManager.score >= 50 && _ballManager.score < 100)
-            thornCount = Random.Range(3, 7);
+            thornCount = Random.Range(4, 7);
 
         else if (_ballManager.score >= 100)
-            thornCount = Random.Range(4, 8);
+            thornCount = Random.Range(5, 9);
 
         Debug.Log(thornCount);
+    }
+
+    public void AllThornsDeactivated()
+    {
+        int i = Random.Range(0, _leftSideThorn.Count);
+        int k = Random.Range(0, _rightSideThorn.Count);
+
+        if (_leftSideThorn[i].activeInHierarchy)
+            _leftSideThorn[i].SetActive(false);
+        else if (_rightSideThorn[k].activeInHierarchy)
+            _rightSideThorn[i].SetActive(false);
     }
 }

@@ -12,21 +12,29 @@ public class Ball_Manager : MonoBehaviour
     public bool _ballGoRight = true;
     public int score;
 
-
+    public GameObject _tapToStart;
     public Rigidbody2D _ballRb2D;
+
     private float _ballBoundary = 5.4f;
+    private bool _isStart = false;
 
 
     void Start()
     {
         _ballRb2D = this.gameObject.GetComponent<Rigidbody2D>();
+
         FirstTouch();
     }
 
     void Update()
     {
-        BallControl();
-        BallBoundries();
+        if (_isStart)
+        {
+            BallControl();
+            BallBoundries();
+        }
+
+        TapToStart();
 
         _scoreText.text = "" + score;
     }
@@ -76,4 +84,28 @@ public class Ball_Manager : MonoBehaviour
         Thorn_Spawn_Manager.Instance.ThornSpawnRightSide();
     }
 
+
+    private void TapToStart()
+    {
+
+        SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        var tempColor = spriteRenderer.color;
+
+        if (_tapToStart.activeInHierarchy)
+        {
+            Time.timeScale = 0;
+            tempColor.a = 0f;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                tempColor.a = 1f;
+                _tapToStart.SetActive(false);
+                gameObject.SetActive(true);
+                Time.timeScale = 1;
+                _isStart = true;
+            }
+
+            spriteRenderer.color = tempColor;
+        }
+    }
 }

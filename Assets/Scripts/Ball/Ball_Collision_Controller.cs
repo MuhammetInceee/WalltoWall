@@ -5,8 +5,10 @@ using UnityEngine;
 public class Ball_Collision_Controller : MonoBehaviour
 {
     [SerializeField] private Ball_Manager _ball;
+    [SerializeField] private Star_Respawner _star;
 
     [SerializeField] private ParticleSystem _executeEffect;
+
 
 
     private void Start()
@@ -29,7 +31,11 @@ public class Ball_Collision_Controller : MonoBehaviour
                 Thorn_Spawn_Manager.Instance.ThornSpawnRightSide();
             }
 
-            _ball.score++;
+            if (!_star.gameObject.activeInHierarchy)
+            {
+                _star.StarRandomSpawner();
+                _star.gameObject.SetActive(true);
+            }
         }
 
         else if(collision.gameObject.tag == "Thorn")
@@ -39,6 +45,15 @@ public class Ball_Collision_Controller : MonoBehaviour
             gameObject.SetActive(false);
             _executeEffect.transform.position = gameObject.transform.position;
             _executeEffect.Play();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Star")
+        {
+            _ball.score++;
+            _star.gameObject.SetActive(false);
         }
     }
 }

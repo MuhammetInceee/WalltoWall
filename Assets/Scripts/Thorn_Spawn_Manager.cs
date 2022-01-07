@@ -111,12 +111,16 @@ public class Thorn_Spawn_Manager : MonoBehaviour
 
     public void AllThornsDeactivated()
     {
-        int i = Random.Range(0, _leftSideThorn.Count);
-        int k = Random.Range(0, _rightSideThorn.Count);
+        foreach(GameObject elements in _leftSideThorn)
+        {
+            if (elements.activeInHierarchy)
+                elements.SetActive(false);
+        }
 
-        if (_leftSideThorn[i].activeInHierarchy)
-            _leftSideThorn[i].SetActive(false);
-        else if (_rightSideThorn[k].activeInHierarchy)
-            _rightSideThorn[i].SetActive(false);
+        foreach (GameObject elements in _rightSideThorn)
+        {
+            if (elements.activeInHierarchy)
+                elements.SetActive(false);
+        }
     }
 }

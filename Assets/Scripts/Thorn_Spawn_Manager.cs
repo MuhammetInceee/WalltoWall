@@ -106,7 +106,6 @@ public class Thorn_Spawn_Manager : MonoBehaviour
         else if (_ballManager.score >= 100)
             thornCount = Random.Range(5, 9);
 
-        Debug.Log(thornCount);
     }
 
     public void AllThornsDeactivated()

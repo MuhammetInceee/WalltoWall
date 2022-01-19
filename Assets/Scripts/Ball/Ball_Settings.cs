@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(menuName = "WallToWall/Ball/Ball Settings")]
+[CreateAssetMenu(menuName = "Wall To Wall/Ball/Ball Settings")]
 public class Ball_Settings : ScriptableObject
 {
     public float _jumpPowerHorizontal;

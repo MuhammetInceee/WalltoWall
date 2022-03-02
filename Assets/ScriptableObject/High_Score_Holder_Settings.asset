@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9eed51461ca3fc4592d26c6fe4fe489, type: 3}
-  m_Name: Ball_Settings
+  m_Script: {fileID: 11500000, guid: 704a128df1340e04f9abc7f2a6152ba9, type: 3}
+  m_Name: High_Score_Holder_Settings
   m_EditorClassIdentifier: 
-  _jumpPowerHorizontal: 30000
-  _jumpPowerVertical: 1500
+  HIGHSCORE: 0

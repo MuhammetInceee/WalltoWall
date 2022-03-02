@@ -12,6 +12,7 @@ public class AbstractGameStates
     };
 
     static GameState currentState;
+    public static bool isOver = false; 
 
 
     public static void SetGameState(GameState newState, Rigidbody2D rb2D)
@@ -34,6 +35,7 @@ public class AbstractGameStates
 
             case GameState.GameOver:
                 rb2D.constraints = RigidbodyConstraints2D.FreezePosition;
+                isOver = true;
                 break;
         }
     }

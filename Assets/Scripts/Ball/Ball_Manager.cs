@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class Ball_Manager : MonoBehaviour
 {
+    [SerializeField] private HighScoreHolderSettings _highScoreHolderSettings;
     [SerializeField] private Ball_Settings _ballController;
     [SerializeField] private Text _scoreText;
+    [SerializeField] private Text _highScoreText;
 
 
     public bool _ballGoRight = true;
@@ -37,6 +39,7 @@ public class Ball_Manager : MonoBehaviour
         TapToStart();
 
         _scoreText.text = "" + score;
+        _highScoreText.text = "High Score : " + _highScoreHolderSettings.HIGHSCORE;
     }
 
 

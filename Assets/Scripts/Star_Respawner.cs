@@ -21,7 +21,7 @@ public class Star_Respawner : MonoBehaviour
         _randomVectorX = Random.Range(-1, 1);
         _randomVectorY = Random.Range(-3, 3.5f);
 
-        _randomPositionStar = new Vector2(_randomVectorX, _randomVectorY) - new Vector2(0, -1.89f);
+        _randomPositionStar = new Vector2(_randomVectorX, _randomVectorY);
 
 
         transform.position = _randomPositionStar;
